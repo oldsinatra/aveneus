@@ -37,22 +37,56 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django.contrib.sites',
+    'api',
+    'corsheaders',
     'rest_framework',
-
+    'rest_framework.authtoken',
+    'rest_framework_swagger',
+    'allauth', 
+    'allauth.account',
+    'rest_auth',
     'properties.apps.PropertiesConfig',
-    'api.apps.ApiConfig',
+    # 'api.apps.ApiConfig',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
+SITE_ID = 1 
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_PERMISSION_CLASSES': [
+    'rest_framework.permissions.IsAuthenticated',
+    # 'rest_framework.permissions.AllowAny',
+    
+],
+    'DEFAULT_AUTHENTICATION_CLASSES': [ 
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.TokenAuthentication',
+],
+}
+
+SWAGGER_SETTINGS = {
+'LOGIN_URL': 'rest_framework:login',
+'LOGOUT_URL': 'rest_framework:logout',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# For front end or mobile App
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000', 
+#     'http://localhost:8000',
+# )
 
 ROOT_URLCONF = 'aveneus_project.urls'
 

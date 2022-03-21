@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Property
+from api.models import *
 
 # Register your models here.
 admin.site.register(Property)
