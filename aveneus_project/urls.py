@@ -23,13 +23,13 @@ schema_view = get_schema_view(title='Aveneus API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('',include('properties.urls')),
-    path('api/',include('api.urls')),
-    path('api-auth/', include('rest_framework.urls')),
-    path('api/rest-auth/', include('rest_auth.urls')),
-    path('api/rest-auth/registration/',include('rest_auth.registration.urls')),
-    path('docs/', include_docs_urls(title='Aveneus API',
-     description='Documentation for the Aveneus APIs')),
-    path('schema/', schema_view), 
+    path('',include('properties.urls')),
+    # path('api/',include('api.urls')),
+    # path('api-auth/', include('rest_framework.urls')),
+    # path('api/rest-auth/', include('rest_auth.urls')),
+    # path('api/rest-auth/registration/',include('rest_auth.registration.urls')),
+    # path('docs/', include_docs_urls(title='Aveneus API',
+    #  description='Documentation for the Aveneus APIs')),
+    # path('schema/', schema_view), 
     # path('swagger-docs/', schema_view),
 ]

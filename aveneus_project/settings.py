@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'properties',
     'api',
     'corsheaders',
     'rest_framework',
@@ -46,7 +48,7 @@ INSTALLED_APPS = [
     'allauth', 
     'allauth.account',
     'rest_auth',
-    'properties.apps.PropertiesConfig',
+    #'properties.apps.PropertiesConfig',
     # 'api.apps.ApiConfig',
 ]
 
@@ -93,7 +95,7 @@ ROOT_URLCONF = 'aveneus_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,6 +157,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = '/images/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+ 
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
