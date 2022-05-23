@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'allauth', 
     'allauth.account',
+    'allauth.socialaccount',
     'rest_auth',
     #'properties.apps.PropertiesConfig',
     # 'api.apps.ApiConfig',
@@ -157,7 +158,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = (

@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 # class PropertyListView(ListView):
 #     model = Property
 #     template_name = 'property_list.html'
-
+@login_required
 def home(request):
     properties = Property.objects.all()
     context ={'propertyz':properties}
@@ -26,6 +26,7 @@ def RegisterView(request):
 def AboutView(request):
     return render(request,'about.html')
 
+@login_required
 def AgencyView(request):
     agencies = Agency.objects.all()
     context = {'agencyz':agencies}
