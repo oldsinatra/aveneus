@@ -24,6 +24,7 @@ schema_view = get_schema_view(title='Aveneus API')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('properties.urls')),
+    path('accounts/', include('allauth.urls')),
     # path('api/',include('api.urls')),
     # path('api-auth/', include('rest_framework.urls')),
     # path('api/rest-auth/', include('rest_auth.urls')),

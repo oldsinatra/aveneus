@@ -27,6 +27,8 @@ class Property(models.Model):
     # landlord = models.CharField(max_length=100)
     landlord = models.ForeignKey(Landlord, on_delete=models.CASCADE, null=True)
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, blank=True, null=True)
+    area = models.CharField(max_length=13,default = 1)
+    bedrooms = models.CharField(max_length=13,default = 1)
     total_units = models.CharField(max_length=13)
     occupied_units = models.CharField(max_length=13)
     unoccupied_units = models.CharField(max_length=13)
@@ -50,3 +52,17 @@ class PropertyTenant(models.Model):
 
     def __str__(self):
         return self.name
+
+class Agency(models.Model):
+    name = models.CharField(max_length=250)
+    email = models.EmailField(max_length=150)
+    phone = models.CharField(max_length=15)
+    address = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["-name"]
+        verbose_name = 'Agency'
+        verbose_name_plural = 'Agencies' 

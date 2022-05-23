@@ -1,0 +1,24 @@
+<!-- templates/base.html -->
+{% load static %}
+<html>
+<head>
+<title>Aveneus Estate Management</title>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"
+rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div>
+{% if user.is_authenticated %}
+<p>Hi {{ user.username }}!</p>
+<p>You are not logged in.</p>
+{% else %}
+
+<a href="{% url 'login' %}">Log In</a>
+<p><a href="{% url 'logout' %}">Log out</a></p>
+{% endif %}
+{% block content %}
+{% endblock content %}
+</div>
+</body>
+</html>

@@ -42,7 +42,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-8">
-                  <div class="intro-body">
+                  <!--<div class="intro-body">
                     <p class="intro-title-top">Doral, Florida
                       <br> 78345
                     </p>
@@ -53,7 +53,7 @@
                     <p class="intro-subtitle intro-price">
                       <a href="#"><span class="price-a">rent | $ 12.000</span></a>
                     </p>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-8">
-                  <div class="intro-body">
+                  <!--<div class="intro-body">
                     <p class="intro-title-top">Doral, Florida
                       <br> 78345
                     </p>
@@ -80,7 +80,7 @@
                     <p class="intro-subtitle intro-price">
                       <a href="#"><span class="price-a">rent | $ 12.000</span></a>
                     </p>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -106,76 +106,45 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
+            <div class="card-box-c foo">
+              <div class="card-header-c d-flex">
+                <div class="card-box-ico">
+                  <span class="bi bi-calendar4-week"></span>
+                </div>
+                <div class="card-title-c align-self-center">
+                  <h2 class="title-c">Rental houses</h2>
+                </div>
+              </div>
+              <div class="card-body-c">
+                <p class="content-c">
+                  We offer a platform for a variety of house and apartment structures for rent, 
+                  offices to let, plaza space through our clients.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
             <div class="card-box-c foo">
               <div class="card-header-c d-flex">
                 <div class="card-box-ico">
                   <span class="bi bi-cart"></span>
                 </div>
                 <div class="card-title-c align-self-center">
-                  <h2 class="title-c">Lifestyle</h2>
+                  <h2 class="title-c">Sell/Purchase</h2>
                 </div>
               </div>
               <div class="card-body-c">
                 <p class="content-c">
-                  Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-                  convallis a pellentesque
-                  nec, egestas non nisi.
+                  On this platform landlords can advertise to sell properties and interested estate agencies or individuals can
+                  buy the properties.
                 </p>
               </div>
-              <div class="card-footer-c">
+              {% comment %}<div class="card-footer-c">
                 <a href="#" class="link-c link-icon">Read more
                   <span class="bi bi-chevron-right"></span>
                 </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-box-c foo">
-              <div class="card-header-c d-flex">
-                <div class="card-box-ico">
-                  <span class="bi bi-calendar4-week"></span>
-                </div>
-                <div class="card-title-c align-self-center">
-                  <h2 class="title-c">Loans</h2>
-                </div>
-              </div>
-              <div class="card-body-c">
-                <p class="content-c">
-                  Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Mauris blandit
-                  aliquet elit, eget tincidunt
-                  nibh pulvinar a.
-                </p>
-              </div>
-              <div class="card-footer-c">
-                <a href="#" class="link-c link-icon">Read more
-                  <span class="bi bi-calendar4-week"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-box-c foo">
-              <div class="card-header-c d-flex">
-                <div class="card-box-ico">
-                  <span class="bi bi-card-checklist"></span>
-                </div>
-                <div class="card-title-c align-self-center">
-                  <h2 class="title-c">Sell</h2>
-                </div>
-              </div>
-              <div class="card-body-c">
-                <p class="content-c">
-                  Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-                  convallis a pellentesque
-                  nec, egestas non nisi.
-                </p>
-              </div>
-              <div class="card-footer-c">
-                <a href="#" class="link-c link-icon">Read more
-                  <span class="bi bi-chevron-right"></span>
-                </a>
-              </div>
+              </div>{% endcomment %}
             </div>
           </div>
         </div>
@@ -189,14 +158,31 @@
           <div class="col-md-12">
             <div class="title-wrap d-flex justify-content-between">
               <div class="title-box">
-                <h2 class="title-a">Latest Properties</h2>
+                <h2 class="title-a">Properties</h2>
               </div>
               <div class="title-link">
-                <a href="{% url 'allproperties' %}">All Properties<span class="bi bi-chevron-right"></span></a>
+                 <!-- ======= Property Grid ======= -->
+    <section class="property-grid grid">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="grid-option">
+              <form>
+                <select class="custom-select">
+                  <option selected>All Properties</option>
+                  <option value="1">For Rent</option>
+                  <option value="2">For Sale</option>
+                  {% comment%}<option value="1" href={% url 'rent' %}>For Rent</option>
+                  <option value="2" href = {% url 'sale' %}>For Sale</option>{% endcomment %}
+                </select>
+              </form>
+            </div>
+          </div>
               </div>
             </div>
           </div>
         </div>
+
 
         <div id="property-carousel" class="swiper">
           <div class="swiper-wrapper">
@@ -403,16 +389,18 @@
           <div class="col-md-12">
             <div class="title-wrap d-flex justify-content-between">
               <div class="title-box">
-                <h2 class="title-a">Best Agents</h2>
+                <h2 class="title-a">Real Estate Agencies</h2>
               </div>
               <div class="title-link">
-                <a href="agents-grid.html">All Agents
+                <a href="{% url 'agencies' %}">All Agencies
                   <span class="bi bi-chevron-right"></span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
+
         <div class="row">
           <div class="col-md-4">
             <div class="card-box-d">
